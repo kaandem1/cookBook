@@ -1,0 +1,29 @@
+#welcomeTitle{
+    text-align: left;
+    font-family: Georgia, serif;
+    color: #00246B;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#welcomeText{
+    text-align: left;
+    font-family: Georgia, serif;
+    color:  #00246B;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+#authContainer {
+    text-align: right;
+    margin-right: 15%;
+}
+
+#signUpText, #alreadyHave {
+    font-family: Georgia, serif;
+    color: #00246B;
+}
+
+body.welcomeBody {
+    background-color: #CADCFC;
+}
