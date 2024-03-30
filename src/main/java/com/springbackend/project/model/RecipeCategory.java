@@ -1,11 +1,14 @@
 package com.springbackend.project.model;
 import jakarta.persistence.*;
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "recipeCategories")
+public class RecipeCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int categoryID;
-    @Column(name = "categoryName", nullable = false, length = 45)
+    private Long categoryID;
+
+    @Column(nullable = false, unique = true)
     private String categoryName;
+
 }

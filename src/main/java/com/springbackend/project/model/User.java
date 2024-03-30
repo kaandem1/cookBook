@@ -1,43 +1,46 @@
 package com.springbackend.project.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userID;
+    private Long userID;
 
-    @ManyToOne
-    @JoinColumn(name = "actorID", nullable = false)
-    private Actor actor;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "countryID", nullable = false)
-    private Country country;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-    public int getUserID() {
-        return userID;
-    }
+    @Column(nullable = false)
+    private String password;
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
+    @Column(nullable = true)
+    private Date joinDate;
 
-    public Actor getActor() {
-        return actor;
-    }
+    @Column(nullable = true)
+    private String profilePicture;
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
-    }
+    @Column(nullable = true)
+    private String bio;
 
-    public Country getCountry() {
-        return country;
-    }
+    @Column(nullable = true)
+    private Date deletedAt;
 
-    public void setCountry(Country country) {
-        this.country = country;
-    }
+    @OneToMany(mappedBy = "user")
+    private List<Recipe> recipes;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "user")
+    private List<GroupMember> groupMembers;
+
 }
